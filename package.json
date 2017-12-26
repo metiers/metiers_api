@@ -1,0 +1,35 @@
+{
+  "name": "metiers_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src --exec babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metiers/metiers_api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metiers/metiers_api/issues"
+  },
+  "homepage": "https://github.com/metiers/metiers_api#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "mysql2": "^1.5.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.14.2"
+  }
+}
