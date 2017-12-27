@@ -17,7 +17,6 @@ function schema() {
 			userId INT NOT NULL,
 			name VARCHAR(255) NOT NULL,
 			description TEXT,
-			notes TEXT,
 			phone VARCHAR(255),
 			address1 VARCHAR(255),
 			address2 VARCHAR(255),
