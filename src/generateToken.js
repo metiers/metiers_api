@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import config from './config';
 
 const generateToken = (user) => {
   var currUser = {
@@ -6,7 +7,7 @@ const generateToken = (user) => {
    lastName: user.lastName,
    id: user.id.toString(),
   };
-  return jwt.sign(currUser, 'secret', {
+  return jwt.sign(currUser, config.jwtSecret, {
      expiresIn: 60 * 60 * 24 // expires in 24 hours
   });
 }
