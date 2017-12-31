@@ -4,7 +4,7 @@ import signupController from '../controllers/signupController';
 import loginController from '../controllers/loginController';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import ensureToken from '../auth';
+import ensureToken from '../ensureToken';
 
 const router = express.Router();
 
@@ -30,7 +30,7 @@ router.route('/github')
 router.route('/dashboard')
 
 router.route('/manual')
-  .post(jobController.manual)
+  .post(ensureToken, jobController.manual)
 
 router.route('/search')
 

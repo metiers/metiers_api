@@ -6,7 +6,6 @@ import Routes from './routes';
 import { initiateDb } from './database'
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import ensureToken from './auth';
 
 const app = express();
 
