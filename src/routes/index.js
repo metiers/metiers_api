@@ -2,6 +2,7 @@ import express from 'express';
 import jobController from '../controllers/jobController';
 import signupController from '../controllers/signupController';
 import loginController from '../controllers/loginController';
+import dashboardController from '../controllers/dashboardController';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ensureToken from '../ensureToken';
@@ -28,6 +29,7 @@ router.route('/signup')
 router.route('/github')
 
 router.route('/dashboard')
+  .post(ensureToken, dashboardController.dashboard)
 
 router.route('/manual')
   .post(ensureToken, jobController.manual)
