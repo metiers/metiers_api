@@ -1,9 +1,9 @@
 import { db } from '../database/index.js';
-import dashboardGet from './helper/dashboardGet';
+import jobDetailGet from './helper/jobDetailGet';
 
 export default {
-  dashboard: (req, res) => {
-    let sql = dashboardGet(parseInt(req.userInfo.id));
+  jobdetail: (req, res) => {
+    let sql = jobDetailGet(parseInt(req.body.jobId));
     db.query(sql, (err, data) => {
       if (err) {
         res.status(400).send('Cannot insert into DB');
