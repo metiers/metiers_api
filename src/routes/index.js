@@ -3,6 +3,7 @@ import jobController from '../controllers/jobController';
 import signupController from '../controllers/signupController';
 import loginController from '../controllers/loginController';
 import dashboardController from '../controllers/dashboardController';
+import jobDetailController from '../controllers/jobDetailController';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ensureToken from '../ensureToken';
@@ -37,5 +38,6 @@ router.route('/manual')
 router.route('/search')
 
 router.route('/jobDetail')
+  .post(ensureToken, jobDetailController.jobdetail)
 
 export default router;

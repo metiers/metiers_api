@@ -2,7 +2,7 @@ function jobDetailGet(id){
   return (    
   `SELECT 
       j.id as job_id, 
-      j.title as job_title_name
+      j.title as job_title_name,
       j.description as job_description, 
       j.notes as job_notes, 
       j.source as job_source,
