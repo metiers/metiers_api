@@ -10,15 +10,12 @@ const ensureToken = (req, res, next) => {
     const bearerToken = bearer[1];        
     req.token = bearerToken;
     jwt.verify(req.token, secret.jwtSecret, function(err, data) {
-      console.log('req.token', req.token);
-      console.log('secret.jwt', secret.jwtSecret);
-      console.log('err', err);
-      console.log('data', data);
       if(err) {
         res.sendStatus(401).json({ error: 'Failed to Authenticate'});
         console.log('Failed to Authenticate');
       } else {
         //This shouldn't query DB without correct headers 
+        req.userInfo = data;
         next();   
       }  
     });   
