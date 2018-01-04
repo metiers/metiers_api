@@ -7,6 +7,7 @@ import jobDetailController from '../controllers/jobDetailController';
 import searchController from '../controllers/searchController';
 import activityLogController from '../controllers/activityLogController';
 import addNotificationController from '../controllers/addNotificationController';
+import getNotificationsController from '../controllers/getNotificationsController';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ensureToken from '../ensureToken';
@@ -19,17 +20,6 @@ router.route('/signup')
   router.route('/login')
   .post(loginController.login);
 
-
-// router.route('/login', function(req, res) {
-//   const user = {
-//     id: 3
-//   };
-//   const token = jwt.sign({user}, 'secret');
-//   res.json({
-//     token: token
-//   });
-// });
-
 router.route('/github')
   .post(searchController.githubPost);
 
@@ -39,6 +29,8 @@ router.route('/dashboard')
 router.route('/addNotification')
   .post(ensureToken, addNotificationController.notification)
 
+router.route('/getNotifications')
+  .post(ensureToken, getNotificationsController.notification)
 
 router.route('/manual')
   .post(ensureToken, jobController.manual);
