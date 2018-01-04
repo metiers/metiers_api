@@ -50,15 +50,17 @@ function schema() {
 		CREATE TABLE IF NOT EXISTS Notification (
 			id INT NOT NULL AUTO_INCREMENT,
 			jobId INT NOT NULL,
+			userId INT NOT NULL,
 			name VARCHAR(255),
 			notes TEXT,
 			type VARCHAR(255) NOT NULL,
 			timeStamp DATETIME,
-			notifyOn VARCHAR(255),
+			notifyOn DATETIME,
 			notificationType VARCHAR(255),
 			PRIMARY KEY (id),
 			KEY jobId (jobId),
-			CONSTRAINT notification_fk0 FOREIGN KEY (jobId) REFERENCES Job (id)
+			CONSTRAINT notification_fk0 FOREIGN KEY (jobId) REFERENCES Job (id),
+			CONSTRAINT notification_fk1 FOREIGN KEY (userId) REFERENCES User (id)
 		);
 		
 		CREATE TABLE IF NOT EXISTS History (
