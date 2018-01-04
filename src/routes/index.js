@@ -4,24 +4,10 @@ import signupController from '../controllers/signupController';
 import loginController from '../controllers/loginController';
 import dashboardController from '../controllers/dashboardController';
 import jobDetailController from '../controllers/jobDetailController';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import searchController from '../controllers/searchController';
 import activityLogController from '../controllers/activityLogController';
-<<<<<<< HEAD
 import addNotificationController from '../controllers/addNotificationController';
 import getNotificationsController from '../controllers/getNotificationsController';
-=======
-=======
-import editNotesController from '../controllers/editNotesController';
-import editJobInfoController from '../controllers/editJobInfoController';
->>>>>>> [add]
-<<<<<<< HEAD
->>>>>>> [add]
-=======
-=======
->>>>>>> [fix[
->>>>>>> [fix[
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ensureToken from '../ensureToken';
@@ -65,9 +51,9 @@ router.route('/addHistory')
   .post(activityLogController.activityLogPost);
 
 router.route('/editNotes')
-  .post(ensureToken, jobDetailController.editNotes)
+  .post(ensureToken, editNotesController.editNotes)
 
 router.route('/editJobInfo')
-  .post(ensureToken, jobDetailController.editInfo)
+  .post(ensureToken, editJobInfoController.editInfo)
 
 export default router;
