@@ -4,6 +4,7 @@ import signupController from '../controllers/signupController';
 import loginController from '../controllers/loginController';
 import dashboardController from '../controllers/dashboardController';
 import jobDetailController from '../controllers/jobDetailController';
+import searchController from '../controllers/searchController';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ensureToken from '../ensureToken';
@@ -28,6 +29,7 @@ router.route('/signup')
 // });
 
 router.route('/github')
+  .post(ensureToken, searchController.githubPost);
 
 router.route('/dashboard')
   .post(ensureToken, dashboardController.dashboard)
@@ -35,7 +37,11 @@ router.route('/dashboard')
 router.route('/manual')
   .post(ensureToken, jobController.manual)
 
-router.route('/search')
+router.route('company/search')
+  .post(ensureToken, searchController.companySearchPost);
+
+router.route('job/search')
+  .post(ensureToken, );
 
 router.route('/jobDetail')
   .post(ensureToken, jobDetailController.jobdetail)
