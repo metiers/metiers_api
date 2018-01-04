@@ -4,6 +4,8 @@ import signupController from '../controllers/signupController';
 import loginController from '../controllers/loginController';
 import dashboardController from '../controllers/dashboardController';
 import jobDetailController from '../controllers/jobDetailController';
+import searchController from '../controllers/searchController';
+import activityLogController from '../controllers/activityLogController';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ensureToken from '../ensureToken';
@@ -28,16 +30,27 @@ router.route('/signup')
 // });
 
 router.route('/github')
+  .post(searchController.githubPost);
 
 router.route('/dashboard')
-  .post(ensureToken, dashboardController.dashboard)
+  .post(ensureToken, dashboardController.dashboard);
 
 router.route('/manual')
-  .post(ensureToken, jobController.manual)
+  .post(ensureToken, jobController.manual);
 
-router.route('/search')
+router.route('/company/search')
+  .post(searchController.companySearchPost);
+
+router.route('/job/search')
+  .post(searchController.jobSearchPost);
 
 router.route('/jobDetail')
-  .post(ensureToken, jobDetailController.jobdetail)
+  .post(ensureToken, jobDetailController.jobdetail);
+
+router.route('/historyLog')
+  .post(activityLogController.activityLog);
+
+router.route('/addHistory')
+  .post(activityLogController.activityLogPost);
 
 export default router;
