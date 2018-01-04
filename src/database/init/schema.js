@@ -54,7 +54,7 @@ function schema() {
 			notes TEXT,
 			type VARCHAR(255) NOT NULL,
 			timeStamp DATETIME,
-			notifyOn DATETIME,
+			notifyOn VARCHAR(255),
 			notificationType VARCHAR(255),
 			PRIMARY KEY (id),
 			KEY jobId (jobId),
