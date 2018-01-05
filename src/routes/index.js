@@ -51,9 +51,9 @@ router.route('/addHistory')
   .post(activityLogController.activityLogPost);
 
 router.route('/editNotes')
-  .post(ensureToken, editNotesController.editNotes)
+  .post(ensureToken, jobDetailController.editNotes)
 
 router.route('/editJobInfo')
-  .post(ensureToken, editJobInfoController.editInfo)
+  .post(ensureToken, jobDetailController.editInfo)
 
 export default router;
