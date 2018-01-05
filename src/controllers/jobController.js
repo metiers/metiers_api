@@ -1,5 +1,5 @@
 import { db } from '../database/index.js';
-import helper from './helper';
+import helper from './helper/enterJob';
 
 export default {
   manual: (req, res) => {

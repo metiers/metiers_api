@@ -50,4 +50,10 @@ router.route('/historyLog')
 router.route('/addHistory')
   .post(activityLogController.activityLogPost);
 
+router.route('/editNotes')
+  .post(ensureToken, jobDetailController.editNotes)
+
+router.route('/editJobInfo')
+  .post(ensureToken, jobDetailController.editInfo)
+
 export default router;
