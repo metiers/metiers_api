@@ -32,7 +32,13 @@ export default {
     })
 
     db.query(`INSERT INTO history (jobId, name, timeStamp) VALUES (${data.job.jobId}, 'Edited Job Info', CURRENT_TIMESTAMP());`, (err) => {
-      if (err) throw err;
+      if (err) {
+        res.status(400).send('Cannot insert into DB');
+        return;
+      } else {
+        res.status(200).send(data);
+        return;
+      }
     })
   },
   editNotes: (req, res) => {
@@ -40,10 +46,18 @@ export default {
 
     db.query(`UPDATE job SET notes='${data.jobNotes}' WHERE id=${data.jobId}`, (err) => {
       if (err) throw err;
+      
     })
-
+    
     db.query(`INSERT INTO history (jobId, name, timeStamp) VALUES (${data.jobId}, 'Edited Notes', CURRENT_TIMESTAMP());`, (err) => {
-      if (err) throw err;
+      if (err) {
+        res.status(400).send('Cannot insert into DB');
+        return;
+      } else {
+        res.status(200).send(data);
+        return;
+      }
     })
   }
+
 }
