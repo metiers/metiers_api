@@ -46,7 +46,7 @@ export default {
       const subquery = `SELECT id FROM Company WHERE name = '${job.company.name}' AND userId=${req.body.id}`;
       const subquery2 = `SELECT id from Job WHERE title = '${job.title}' AND userId=${req.body.id}`;
       const check = `SELECT * FROM Job WHERE title = '${job.title}' AND userId=${req.body.id}`;
-      const sql = `INSERT INTO Job (userId, companyId, title, description, deadline, ranking, source, status, link) VALUES (${req.body.id}, (${subquery}), '${job.title}', ${job.description}, '', 3, 'Search', 'Will Apply', '${job.apply_url}')`;
+      const sql = `INSERT INTO Job (userId, companyId, title, description, deadline, ranking, source, status, link, createdAt) VALUES (${req.body.id}, (${subquery}), '${job.title}', ${job.description}, '', 3, 'Search', 'Will Apply', '${job.apply_url}', CURRENT_TIMESTAMP())`;
       const sql2 = `INSERT INTO History (jobId, name, timeStamp) VALUES ((${subquery2}), 'Saved Searched Job', CURRENT_TIMESTAMP())`;  
       db.query(check, (err, results) => {
         console.log('this is results', results);
